@@ -1,26 +1,26 @@
-import { describe, it, expect, afterEach } from 'vitest';
-
-import { mount } from '@vue/test-utils';
+import { describe, it, expect, afterEach, beforeEach } from 'vitest';
+import { createApp } from 'vue';
+import { mount, unmount } from '@vue/test-utils';
+import App from '../../App.vue';
 import Title from '../Title.vue';
-import SearchBar from '../SearchBar.vue';
-import Content from '../Content.vue';
+//import SearchBar from '../SearchBar.vue';
+//import Content from '../Content.vue';
 
 let wrapper;
 beforeEach(() => {
-  const app = createApp(App);
-  wrapper = mount(app);
+  wrapper = mount(App);
 });
 
 afterEach( () => {
-  wrapper.destroy();
+  wrapper.unmount();
 });
 
-describe.todo('Title Component', () => {
+describe('Title Component', () => {
   it('renders properly', () => {
     const title = wrapper.findComponent(Title);
 
     expect(title.exists()).toBe(true);
-    expect(wrapper.text()).toContain('Github Profile Viewer');
+    expect(title.text()).toContain('Github Profile Viewer');
   })
 });
 
