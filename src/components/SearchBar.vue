@@ -10,6 +10,7 @@
           updateUsername(event) {
             const n = event.target.value;
             this.username = n;
+            this.$emit("updateEvent", this.username);
           }
         }
     }

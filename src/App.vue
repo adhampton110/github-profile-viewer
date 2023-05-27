@@ -7,6 +7,16 @@ export default {
     Title,
     Content,
     SearchBar,
+  },
+  data () {
+    return {
+      username: "",
+    }
+  },
+  methods: {
+    handleUpdateUsername(data) {
+      this.username = data;
+    }
   }
 }
 </script>
@@ -14,7 +24,7 @@ export default {
 <template>
     <Title/>
     <div>
-      <SearchBar/>
+      <SearchBar @updateEvent="handleUpdateUsername"/>
     </div>
     
     <Content/>
