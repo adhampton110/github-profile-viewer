@@ -1,10 +1,27 @@
-<script setup>
+<script>
 import Title from './components/Title.vue';
+import Content from './components/Content.vue';
+export default {
+  data () {
+      return {   
+          avatar_url: "https://avatars.githubusercontent.com/u/583231?v=4",
+          followers_url: "https://api.github.com/users/octocat/followers",
+          login: "adhampton",
+          url: "https://github.com/adhampton110",
+          repo_url: "https://api.github.com/users/adhampton110/repos",
+      }
+  },
+  components: {
+    Title,
+    Content,
+  }
+}
 </script>
 
 <template>
   <div>
     <Title/>
+    <Content/>
   </div>
 </template>
 
