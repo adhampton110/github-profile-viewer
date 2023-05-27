@@ -14,6 +14,18 @@ test('test component renders properly', () => {
     
     expect(wrapper.exists()).toBe(true);
     expect(inputElement.attributes('type')).toBe('text');
+    expect(inputElement.attributes("placeholder")).toEqual("Find a User");
     
 
 });
+
+test('pressing enter updates username variable', () => {
+  const inputElement = wrapper.find('input');
+
+  inputElement.setValue('John Doe');
+  inputElement.trigger('keydown.enter');
+
+  expect(wrapper.vm.username).toBe('John Doe');
+  
+});
+

@@ -2,8 +2,15 @@
     export default {
         name: "SearchBar",
         data () {
-            return {   
-            }
+          return {
+            username: '',
+          }
+        },
+        methods: {
+          updateUsername(event) {
+            const n = event.target.value;
+            this.username = n;
+          }
         }
     }
 </script>
@@ -11,7 +18,7 @@
 
 
 <template>
-    <input type="text" placeholder="Find a User"/>
+    <input type="text" placeholder="Find a User" v-on:keydown.enter="updateUsername"/>
 </template>
 
 <style scoped>
