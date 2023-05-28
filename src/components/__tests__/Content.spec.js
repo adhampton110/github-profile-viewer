@@ -13,3 +13,4 @@ test('initial data renders correctly', () => {
     expect(wrapper.text()).toContain("https://api.github.com/users/octocat/followers");
     expect(wrapper.text()).toContain("https://api.github.com/users/adhampton110/repos");
 });
+

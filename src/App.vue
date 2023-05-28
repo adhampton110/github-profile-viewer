@@ -11,14 +11,39 @@ export default {
   data () {
     return {
       username: "",
+      userData: {},
+      userRepositories: null,
     }
   },
   methods: {
-    handleUpdateUsername(data) {
+    async handleUpdateUsername(data) {
       this.username = data;
-    }
+      
+      await this.fetchUser(this.username);
+      await this.fetchRepositories(this.userData.repos_url);
+    },
+    async fetchUser (username) {
+      try {
+        const response = await fetch(`https://api.github.com/users/${username}`);
+        let data = await response.json();
+        this.userData = data;
+        console.log(this.userData);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async fetchRepositories(url) {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        this.userRepositories = data;
+        console.log(this.userRepositories);
+      } catch (error) {
+        console.error(error);
+      }
+    },
   }
-}
+  }
 </script>
 
 <template>
