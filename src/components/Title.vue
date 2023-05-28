@@ -2,8 +2,8 @@
 </script>
 
 <template>
-    <h1>Github Profile Viewer</h1>
-    <h3>Check Detailed Github Information</h3>
+    <h1><span style="color: rgb(108,198,68); font-weight: 500;">GitHub</span> Profile Viewer</h1>
+    <h3>View Public GitHub User Information</h3>
 </template>
 
 <style scoped>

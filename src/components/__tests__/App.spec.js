@@ -1,7 +1,8 @@
 import {  expect, afterEach, beforeEach,test, vi  } from 'vitest';
 import { mount } from '@vue/test-utils';
 import App from '../../App.vue';
-import {userResponse} from '../__tests__/mockUser';
+import {mockData} from '../__tests__/mockUser';
+import {mockRepos} from '../__tests__/mockUser';
 
 
 test('handleUpdateUsername() Updates Username', () => {
@@ -23,7 +24,7 @@ test('fetchUser() should fetch and set the profile and repositories data', async
     
     await wrapper.vm.fetchUser(username);
     expect(spy).toHaveBeenCalled(1);
-    expect(wrapper.vm.userData).toEqual(userResponse);
+    expect(wrapper.vm.userData).toEqual(mockData);
     vi.restoreAllMocks();
 });
 
@@ -37,6 +38,6 @@ test('fetchRepositories() should fetch set the repository data', async () => {
     
     await wrapper.vm.fetchRepositories(url);
     expect(spy).toHaveBeenCalled(1);
-    expect(wrapper.vm.userRepositories).toEqual(userResponse);
+    expect(wrapper.vm.userRepositories).toEqual(mockRepos);
     vi.restoreAllMocks();
 });

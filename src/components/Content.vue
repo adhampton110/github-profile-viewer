@@ -1,33 +1,111 @@
 <script>
+    import Repository from '../components/Repository.vue';
     export default {
         name: "Content",
-        data () {
-            return {   
-                avatar_url: "https://avatars.githubusercontent.com/u/583231?v=4",
-                followers_url: "https://api.github.com/users/octocat/followers",
-                login: "adhampton110",
-                url: "https://github.com/adhampton110",
-                repo_url: "https://api.github.com/users/adhampton110/repos",
-            }
-        }
+        components: {
+            Repository,
+        },
+        props:['user','repos'],
     }
 </script>
 
 
 
 <template>
-    <img alt="user image" :src="avatar_url"/>
-    <h3> {{ login }}</h3>
-    <h3> {{ url }}</h3>
-    <h3> {{ followers_url }}</h3>
-    <h3> {{ repo_url }}</h3>
+    <div class="child1">
+        <img alt="user image" :src="user.avatar_url"/>
+        <h1> {{ user.name }} </h1>
+        <h3> {{ user.login }}</h3>
+        <p> {{ user.bio }} </p>
+        <div>
+            <p class="inline"> <span style=" color: #fff;">{{ user.followers }}</span> followers</p>
+            <li class="inline"></li>
+            <p class="inline"> <span style="color:#fff;">{{ user.following }}</span> following</p>
+        </div>
+        <div>
+            <svg fill="#EBEBEBA3" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                <path d="M1.75 16A1.75 1.75 0 0 1 0 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 0 0 .25-.25V8.285a.25.25 0 0 0-.111-.208l-1.055-.703a.749.749 0 1 1 .832-1.248l1.055.703c.487.325.779.871.779 1.456v5.965A1.75 1.75 0 0 1 14.25 16h-3.5a.766.766 0 0 1-.197-.026c-.099.017-.2.026-.303.026h-3a.75.75 0 0 1-.75-.75V14h-1v1.25a.75.75 0 0 1-.75.75Zm-.25-1.75c0 .138.112.25.25.25H4v-1.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v1.25h2.25a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25ZM3.75 6h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM3 3.75A.75.75 0 0 1 3.75 3h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 3.75Zm4 3A.75.75 0 0 1 7.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 7 6.75ZM7.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM3 9.75A.75.75 0 0 1 3.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 9.75ZM7.75 9h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path>
+            </svg>
+            <p class="inlineUser"> {{ user.company }} </p>
+        </div>
+        <div>
+            <svg fill="#EBEBEBA3" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                <path d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z"></path>
+            </svg>
+            <p class="inlineUser"> {{ user.location }} </p>
+        </div>
+        <div>
+            <svg fill="#EBEBEBA3" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link">
+                <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
+            </svg>
+            <a class="inlineUser" :href="user.html_url"> {{ user.html_url }}</a>
+        </div>
+        
+        
+        
+    </div>
+    <div class="child2">
+        <h1>Repositories</h1>
+        <h3 v-if="Object.keys(repos).length == 0">This user has no public repositories</h3>
+        <p v-else>
+            <p v-for="repo in repos">
+                <Repository 
+                v-bind:title="repo.name"
+                v-bind:repoLink="repo.html_url"
+                v-bind:description="repo.description"
+                v-bind:watcherCount="repo.watchers_count"
+                v-bind:forkCount="repo.forks_count" />
+                <hr/>
+            </p>
+        </p>
+    </div>
+    
+    
 </template>
 
 <style scoped>
+.inlineUser {
+    display: inline-block;
+
+    padding-left: 5px;
+}
+a {
+    color: #EBEBEBA3;
+    text-decoration: underline;
+}
+.child1{
+    float:left;
+    width: 50%;
+    position: fixed;
+}
+.child2{
+    float:right;
+    width: 50%;
+}
+
+.inline {
+    display: inline-block;
+
+    padding-right: 5px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+hr {
+    background-color: #EBEBEBA3;
+    height: .1px;
+    border:none;
+}
+
 h1 {
   font-weight: 500;
-  font-size: 2.6rem;
+  font-size: 1.7rem;
   top: -10px;
+  color: #f0f6f3;
 }
 
 h3 {

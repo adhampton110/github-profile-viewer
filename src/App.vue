@@ -2,17 +2,24 @@
 import Title from './components/Title.vue';
 import Content from './components/Content.vue';
 import SearchBar from './components/SearchBar.vue';
+import {mockData} from '../src/components/__tests__/mockUser';
+import {mockRepos} from '../src/components/__tests__/mockRepos';
+
 export default {
   components: {
     Title,
     Content,
     SearchBar,
   },
+  props: {
+    user: Object,
+    repos: Object,
+  },
   data () {
     return {
       username: "",
-      userData: {},
-      userRepositories: null,
+      userData: mockData,
+      userRepositories: mockRepos,
     }
   },
   methods: {
@@ -27,7 +34,6 @@ export default {
         const response = await fetch(`https://api.github.com/users/${username}`);
         let data = await response.json();
         this.userData = data;
-        console.log(this.userData);
       } catch (error) {
         console.error(error);
       }
@@ -47,39 +53,25 @@ export default {
 </script>
 
 <template>
+  <div class="container">
     <Title/>
-    <div>
-      <SearchBar @updateEvent="handleUpdateUsername"/>
-    </div>
+    <SearchBar @updateEvent="handleUpdateUsername"/>
+  </div>
     
-    <Content/>
+    <Content v-bind:user="this.userData" v-bind:repos="this.userRepositories"/>
 </template>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 100px;
+}
+
 header {
   line-height: 1.5;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
