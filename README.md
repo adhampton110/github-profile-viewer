@@ -1,18 +1,21 @@
-# github-profile-viewer
+# Github Profile Viewer
 
-This template should help get you started developing with Vue 3 in Vite.
+The GitHub Profile Viewer is a Vue.js application that leverages GitHub's REST API to retrieve and display user information based on a given username. This project provides a simple and intuitive interface for users to explore and view preliminary information about GitHub users and their repositories.
 
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Getting started
 
-## Project Setup
+**Step 1:** Clone or fork the repository using the following link:
+```
+https://github.com/adhampton110/github-profile-viewer.git
+```
 
-```sh
+**Step 2:** Execute the following command to install project dependencies:
+```
 npm install
 ```
 
@@ -34,18 +37,3 @@ npm run build
 npm run test:unit
 ```
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
