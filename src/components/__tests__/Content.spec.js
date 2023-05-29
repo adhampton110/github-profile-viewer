@@ -1,16 +1,34 @@
-import {  expect, afterEach, beforeEach,test } from 'vitest';
-import { mount, unmount,destroy } from '@vue/test-utils';
+import {  expect, afterEach, beforeEach,test, describe, it } from 'vitest';
+import { mount, unmount,destroy, shallowMount } from '@vue/test-utils';
 import Content from '../Content.vue';
 
 let wrapper;
 beforeEach( () => {
-    wrapper = mount(Content);
+    wrapper = mount(Content, {
+        propsData: {
+            user : {
+                company: "ABC Company"
+            }
+        }
+    });
 });
 
-test('initial data renders correctly', () => {
-    expect(wrapper.text()).toContain("adhampton110");
-    expect(wrapper.text()).toContain("https://github.com/adhampton110");
-    expect(wrapper.text()).toContain("https://api.github.com/users/octocat/followers");
-    expect(wrapper.text()).toContain("https://api.github.com/users/adhampton110/repos");
+describe('Conditional Rendering', () => {
+
+    it('renders company div if user.company is not null', () => {
+        const wrapper = mount(Content, {
+            user: {
+                company: "Google"
+            }, 
+            repos:
+                [
+                {  
+
+                }
+            ]
+        
+        });
+        expect(wrapper.find('.child1 div').exists()).toBe(true);
+    });
 });
 

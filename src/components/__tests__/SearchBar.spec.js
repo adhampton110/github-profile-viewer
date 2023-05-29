@@ -14,7 +14,7 @@ test('test component renders properly', () => {
     
     expect(wrapper.exists()).toBe(true);
     expect(inputElement.attributes('type')).toBe('text');
-    expect(inputElement.attributes("placeholder")).toEqual("Find a User");
+    expect(inputElement.attributes("placeholder")).toEqual("Enter a GitHub username...");
     
 
 });

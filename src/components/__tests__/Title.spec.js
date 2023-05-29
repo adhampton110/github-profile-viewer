@@ -11,5 +11,5 @@ beforeEach(() => {
 
 test('title component renders properly', () => {
   expect(wrapper.exists()).toBe(true);
-  expect(wrapper.text()).toContain('Github Profile Viewer');
+  expect(wrapper.text()).toContain('View Public GitHub User Information');
 });

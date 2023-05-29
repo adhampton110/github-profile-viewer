@@ -19,7 +19,7 @@
 
 
 <template>
-    <input type="text" placeholder="Find a User..." v-on:keydown.enter="updateUsername"/>
+    <input type="text" placeholder="Enter a GitHub username..." v-on:keydown.enter="updateUsername"/>
 </template>
 
 <style scoped>

@@ -18,8 +18,8 @@ export default {
   data () {
     return {
       username: "",
-      userData: mockData,
-      userRepositories: mockRepos,
+      userData: {},
+      userRepositories: {},
     }
   },
   methods: {
@@ -43,7 +43,6 @@ export default {
         const response = await fetch(url);
         const data = await response.json();
         this.userRepositories = data;
-        console.log(this.userRepositories);
       } catch (error) {
         console.error(error);
       }
@@ -57,8 +56,7 @@ export default {
     <Title/>
     <SearchBar @updateEvent="handleUpdateUsername"/>
   </div>
-    
-    <Content v-bind:user="this.userData" v-bind:repos="this.userRepositories"/>
+    <Content v-if="Object.keys(userData).length !== 0" v-bind:user="this.userData" v-bind:repos="this.userRepositories"/>
 </template>
 
 <style scoped>
