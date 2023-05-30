@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils';
 import App from '../../App.vue';
 import {mockData} from '../__tests__/mockUser';
 import {mockRepos} from '../__tests__/mockUser';
+import Popup from '../../components/Popup.vue';
 
 
 test('handleUpdateUsername() Updates Username', () => {
