@@ -1,5 +1,5 @@
 import {  expect, beforeEach, test } from 'vitest';
-import { mount, unmount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import Title from '../Title.vue';
 
 let wrapper;

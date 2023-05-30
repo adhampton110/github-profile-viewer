@@ -1,5 +1,5 @@
-import { describe, it, expect, afterEach, beforeEach, test } from 'vitest';
-import { mount, unmount } from '@vue/test-utils';
+import { expect, beforeEach, test } from 'vitest';
+import { mount } from '@vue/test-utils';
 import SearchBar from '../SearchBar.vue';
 
 let wrapper;
