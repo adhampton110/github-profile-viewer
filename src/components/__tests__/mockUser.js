@@ -1,4 +1,4 @@
-export const mockData = {
+export const mockUser = {
     "login": "octocat",
     "id": 583231,
     "node_id": "MDQ6VXNlcjU4MzIzMQ==",

@@ -1,18 +1,21 @@
-import {  expect, afterEach, beforeEach,test, vi, describe, it  } from 'vitest';
+import {  expect, vi, describe, it, beforeEach  } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Popup from '../Popup.vue';
 
 describe('Popup Component', () => {
 
-    it('renders the correct title and message', () => {
-        const wrapper = mount(Popup, {
+    let wrapper;
+    beforeEach( () => {
+        wrapper = mount(Popup, {
             propsData: {
                 title: "Example Title",
                 message: "Example Message",
-                trigger: true,
             }
         });
-
+    });
+    
+    it('renders the correct title and message', () => {
+        
         //ensure title matches and is rendered
         expect(wrapper.findComponent(Popup).exists()).toBe(true);
         expect(wrapper.find('.popup .popup-inner h2').text()).toEqual("Example Title");
@@ -22,20 +25,13 @@ describe('Popup Component', () => {
         expect(wrapper.find('.popup .popup-inner p').text()).toEqual("Example Message");
     });
 
-    it('sets dimiss function after click', async() => {
-        const wrapper = mount(Popup, {
-            propsData: {
-                title: "Example Title",
-                message: "Example Message",
-            }
-        });
-
+    it('dismiss() function is called after click', async() => {
         const spy = vi.spyOn(wrapper.vm,'dismiss');
+
         expect(spy.getMockName()).toContain('dismiss');
 
+        // button trigger should trigger dismiss(), which should trigger the spy
         await wrapper.find('button').trigger("click");
-        
-        //button trigger should be set to false 
         expect(spy).toBeCalled();
 
     })
