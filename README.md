@@ -37,3 +37,15 @@ npm run build
 npm run test:unit
 ```
 
+### Run E2E Tests with [Cypress](https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjl_JKWjZ3_AhULGa0GHYCQDXsYABAAGgJwdg&ohost=www.google.com&cid=CAESa-D2OXvXP34dhi1H_me14kZhFjVv63-gEb5W01mL6I-gV-c7ZZT1uggskCI4s0l-YKmAbErT8-uMjQQlKJEDhNy5QmzOGZrdtnTCajWyvYJKKr2R6lYKJsRi_H0QlrDjDWMi1aQH00yIy1tq&sig=AOD64_0iRoKwkuJZamTk39txN6B2xQXFng&q&adurl&ved=2ahUKEwjM1oqWjZ3_AhU-OkQIHQzmBYQQ0Qx6BAgJEAE)
+
+In a terminal window, execute the server:
+```
+npm run dev
+```
+
+In a separate terminal window, while the server is live, execute:
+```
+npx cypress run
+```
+
